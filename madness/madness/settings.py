@@ -1,18 +1,19 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-i1e9^g_t9p-hl9q6imnfc#ve3lck=x2@e)fk*)qu7d3makz#=0'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -77,6 +78,11 @@ DATABASES = {
     }
 }
 
+
+database_url = os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
+
+#postgresql://mad_ffza_user:Pp8XDZ6WBFyH3iHX76gSRzQ86yHtEtFQ@dpg-cu9s4sd6l47c73ag1rkg-a.oregon-postgres.render.com/mad_ffza
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
