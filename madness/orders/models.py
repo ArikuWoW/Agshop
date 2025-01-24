@@ -19,6 +19,7 @@ class Order(models.Model):
     street = models.CharField(max_length=50)
     house_number = models.CharField(max_length=10)
     apartment_number = models.CharField(max_length=10)
+    postal_code = models.CharField(max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)
     tracking_number = models.CharField(max_length=40, blank=True,
                                        default='Pending')
