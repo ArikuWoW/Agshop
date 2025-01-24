@@ -8,12 +8,12 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-um-as%jgan0z)z2*ev!^tlb#j+uouj4mnjqa6a5_ui=1%=ci@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,8 +79,7 @@ DATABASES = {
 }
 
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES['default'] = dj_database_url.parse(database_url)
+database_url = 'postgresql://mad_ffza_user:Pp8XDZ6WBFyH3iHX76gSRzQ86yHtEtFQ@dpg-cu9s4sd6l47c73ag1rkg-a.oregon-postgres.render.com/mad_ffza'
 
 #postgresql://mad_ffza_user:Pp8XDZ6WBFyH3iHX76gSRzQ86yHtEtFQ@dpg-cu9s4sd6l47c73ag1rkg-a.oregon-postgres.render.com/mad_ffza
 

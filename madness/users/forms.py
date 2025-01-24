@@ -19,8 +19,8 @@ class UserRegistrationForm(UserCreationForm):
     
     
     def clean_password2(self):
-        password1 = self.changed_data.get('password1')
-        password2 = self.changed_data.get('password2')
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
         
         return password2
     
